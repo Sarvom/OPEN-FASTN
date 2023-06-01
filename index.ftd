@@ -6,40 +6,36 @@
 
 -- lib.hero: OPEN FASTN
 heading: Building a resilient future through
-cover: $assets.files.images.hero.png
 
-From safeguarding your personal data to protecting your community, our aim is to equip 
-you with the latest cyber education tools & strategies. Let's work together to build a 
-resilient future - Be Secured, Stay Secured!"
+A platform to develop your skills through contributing to community
 
--- lib.countdown-with-info: 2nd Regional cybersecurity conference
-pic: $assets.files.images.conf.png
-heading: 10 | May | 2023
-icon: $assets.files.images.location_on.png
-text: University Theatre, SFJ Blog, Holy Angel University
-counter: 12 days : 16 hr : 30 min
-reminder: Time Left to claim NFT
+-- lib.about: About 
+pic: $assets.files.images.opensource.jpg
 
--- lib.container-with-title: How to Claim
+OPEN FASTN will be a two week long open source contribution to FASTN Web Components 
+Library for supporting the next generation of programmers to build their projects more 
+easily. 
 
--- lib.image-with-content: Connect your wallet
-pic: $assets.files.images.connect.png
+-- lib.container-with-title: Why OPEN FASTN?
+
+-- lib.image-with-content: Great opportunity to contribute to the community
+pic: $assets.files.images.community.jpg
 number: 01
 
 Design your drop of 1-5 NFTs and send us your artwork. We get that you're creative, so 
 take note: Sweet supports image, audio and video media assets. Make your NFT drop 
 interesting, engaging and fun.
 
--- lib.image-with-content: Claim NFT
-pic: $assets.files.images.claim.png
+-- lib.image-with-content: Win exciting swags
+pic: $assets.files.images.swag.jpg
 number: 02
 
 Design your drop of 1-5 NFTs and send us your artwork. We get that you're creative, so 
 take note: Sweet supports image, audio and video media assets. Make your NFT drop 
 interesting, engaging and fun.
 
--- lib.image-with-content: View NFT
-pic: $assets.files.images.view.png
+-- lib.image-with-content: Get recognized for your contributions.
+pic: $assets.files.images.contributions.png
 number: 03
 
 Design your drop of 1-5 NFTs and send us your artwork. We get that you're creative, so 
@@ -48,16 +44,7 @@ interesting, engaging and fun.
 
 -- end: lib.container-with-title
 
--- lib.about: About Us
-pic: $assets.files.images.people.png
-
-A design approach is a general philosophy that may or may not include a guide for 
-specific methods. A design approach is a general philosophy that may or may not include 
-a guide for specific methods.A design approach is a general philosophy that may or may 
-not include a guide for specific methods.A design approach is a general philosophy 
-that may or may not include a guide for specific methods.
-
--- lib.container-with-title: FAQs
+-- lib.container-with-title: How to contribute?
 
 -- lib.faq: How do I get a crypto wallet?
 

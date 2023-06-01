@@ -155,6 +155,7 @@ role: $inherited.types.label-large
 text-align: center
 margin-horizontal.px: 32
 color: $inherited.colors.text
+link: index.html#about
 
 -- ftd.text: $navbar-mobile.cta-text-3
 role: $inherited.types.label-large
@@ -219,6 +220,8 @@ string cta-text-4:
 string cta-text-5:
 string cta-button-1:
 boolean $is-active: false
+ftd.image-src toggle: $assets.files.images.toggle.png
+boolean $mode: false
 
 -- ftd.row:
 width: fill-container
@@ -230,10 +233,13 @@ sticky: true
 -- ftd.image:
 src: $navbar-desktop.logo
 align-self: center
+height.fixed.px: 72
+
 
 -- ftd.row:
 width: fill-container
 spacing: space-between
+align-self: center
 
 -- ftd.row:
 align-self: center
@@ -249,6 +255,7 @@ role: $inherited.types.label-large
 text-align: center
 margin-horizontal.px: 32
 color: $inherited.colors.text
+link: index.html#about
 
 -- ftd.text: $navbar-desktop.cta-text-3
 role: $inherited.types.label-large
@@ -271,7 +278,8 @@ color: $inherited.colors.text
 -- end: ftd.row
 
 -- ftd.row:
-margin-vertical.px: 29
+margin-vertical.px: 32
+spacing.fixed.px: 8
 
 -- ftd.text: $navbar-desktop.cta-button-1
 role: $inherited.types.label-large
@@ -287,6 +295,24 @@ border-color if { navbar-desktop.is-active }: $inherited.colors.cta-primary.hove
 $on-mouse-enter$: $ftd.set-bool($a = $navbar-desktop.is-active, v = true)
 $on-mouse-leave$: $ftd.set-bool($a = $navbar-desktop.is-active, v = false)
 color: $inherited.colors.text
+
+-- ftd.image: 
+if: { !navbar-desktop.mode }
+src: $navbar-desktop.toggle
+height.fixed.px: 32
+width.fixed.px: 32
+$on-click$: $ftd.set-bool($a = $navbar-desktop.mode, v = true)
+$on-click$: $ftd.enable-dark-mode()
+align-self: center
+
+-- ftd.image: 
+if: { navbar-desktop.mode }
+src: $navbar-desktop.toggle
+height.fixed.px: 32
+width.fixed.px: 32
+$on-click$: $ftd.set-bool($a = $navbar-desktop.mode, v = false)
+$on-click$: $ftd.enable-light-mode()
+align-self: center
 
 -- end: ftd.row
 
@@ -306,10 +332,10 @@ color: $inherited.colors.text
 
 -- component footer:
 caption text:
-ftd.image-src logo: $assets.files.images.admint-logo.png
+ftd.image-src logo: $assets.files.images.logo.png
 ftd.image-src icon-1: $assets.files.images.linkedin.png
-ftd.image-src icon-2: $assets.files.images.youtube.png
-ftd.image-src icon-3: $assets.files.images.fb.png
+ftd.image-src icon-2: $assets.files.images.twitter.png
+ftd.image-src icon-3: $assets.files.images.github.png
 string url-1: /
 string url-2: /
 string url-3: /
@@ -330,25 +356,33 @@ border-bottom-width.px: 2
 color: $inherited.colors.text
 
 -- ftd.image: $footer.icon-1
+height.fixed.px: 32
+width.fixed.px: 32
 link: $footer.url-1
 
 -- ftd.image: $footer.icon-2
+height.fixed.px: 32
+width.fixed.px: 32
 link: $footer.url-2
 
 -- ftd.image: $footer.icon-3
+height.fixed.px: 32
+width.fixed.px: 32
 link: $footer.url-3
 
 -- end: ftd.row
 
 -- ftd.row:
-margin-top.px: 32
+margin-top.px: 16
 spacing.fixed.px: 10
 
 -- ftd.text: $footer.text
 role: $inherited.types.copy-regular
 color: $inherited.colors.text
+align-self: center
 
 -- ftd.image: $footer.logo
+height.fixed.px: 60
 
 -- end: ftd.row
 
@@ -366,13 +400,13 @@ color: $inherited.colors.text
 
 
 -- component hero:
-ftd.image-src cover:
 caption title:
 string heading:
 body content:
 
 -- ftd.column:
 width: fill-container
+align-content: center
 margin-top.px: 100
 
 -- ftd.column:
@@ -396,30 +430,23 @@ classes: color-2
 margin-vertical.px: 24
 role: $inherited.types.copy-regular
 color: $inherited.colors.text
-opacity: 0.7
 
 -- end: ftd.column
-
--- ftd.image:
-src: $hero.cover
-width: fill-container
-align-self: center
-padding-horizontal.px: 20
 
 -- end: ftd.column
 
 -- ftd.row:
 if: { ftd.device == "desktop" }
-background.image: $assets.files.images.hero-bg-1.png
 
 -- ftd.column:
-margin-horizontal.px: 33
-width.fixed.percent: 50
+margin-horizontal.px: 48
+width: fill-container
+align-content: center
+align-self: center
 
 -- ftd.text: $hero.heading
 role: $inherited.types.heading-large
 color: $inherited.colors.text
-margin-right.px: 125
 margin-bottom.px: 20
 
 -- ftd.text: $hero.title
@@ -430,14 +457,10 @@ classes: color-2
 -- ftd.text: $hero.content
 margin-top.px: 24
 margin-bottom.px: 48
-role: $inherited.types.copy-large
+role: $inherited.types.heading-small
 color: $inherited.colors.text
-opacity: 0.7
 
 -- end: ftd.column
-
--- ftd.image:
-src: $hero.cover
 
 -- end: ftd.row
 
@@ -467,7 +490,6 @@ string reminder:
 -- ftd.column:
 width: fill-container
 margin-bottom.px: 100
-background.image: $assets.files.images.bg.png
 
 -- ftd.column:
 if: { ftd.device == "mobile" }
@@ -706,11 +728,13 @@ width: fill-container
 margin-bottom.px: 100
 
 -- ftd.row:
-spacing.fixed.px: 215
-margin-horizontal.px: 134
+spacing.fixed.px: 200
+margin-horizontal.px: 120
 
 -- ftd.image:
 src: $image-with-content-desktop.pic
+width.fixed.percent: 40
+height: auto
 
 -- ftd.column:
 margin-vertical.px: 50
@@ -788,9 +812,12 @@ body body:
 
 -- ftd.column:
 padding-horizontal.px: 10
+margin-vertical.px if { ftd.device == "desktop" } : 100
+id: about
 
 -- ftd.column:
 if: { ftd.device == "mobile" }
+margin-vertical.px: 24
 
 -- ftd.column:
 margin-vertical.px: 40
@@ -816,11 +843,10 @@ align-self: center
 
 -- ftd.row:
 if: { ftd.device == "desktop" }
+margin-horizontal.px: 96
 
 -- ftd.column:
-margin-vertical.px: 138
-margin-left.px: 165
-margin-right.px: 125
+margin-vertical.px: 120
 
 -- ftd.text: $about.title
 role: $inherited.types.heading-large
@@ -835,7 +861,7 @@ opacity: 0.7
 
 -- ftd.image:
 src: $about.pic
-
+border-radius.px: 20
 
 -- end: ftd.row
 
@@ -969,14 +995,14 @@ align-self: center
 
 
 -- ftd.linear-gradient lg:
-direction: bottom-left
+direction: top-left
 colors: $color-values-2
 
 -- ftd.linear-gradient-color list color-values-2:
 
--- ftd.linear-gradient-color: #6F59E9
+-- ftd.linear-gradient-color: #2eef71
 
--- ftd.linear-gradient-color: #D12EEF
+-- ftd.linear-gradient-color: #2208b3
 
 -- end: color-values-2
 
